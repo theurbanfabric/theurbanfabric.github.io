@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+<meta name="description" content="The Urban Fabric Photography | Dallas, Texas | Specializing in Urban Aesthetics and Non-traditional Photography" />
+<title>Urban Fabric Photography</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.12.custom.min.js"></script>
+
+<style type="text/css" media="all">
+body {
+  background:#151515; color:#727264; font:11pt palatino,garamond,serif;
+  letter-spacing:.1em;
+}
+img {border:0;}
+a {text-decoration:none; color:#727264;}
+a:hover {color:#c2c0a7;}
+a #email {border:1px solid #151515;}
+a:hover #email {border-color:#ccc;}
+#copyright {
+  position:absolute; bottom:2px; right:7px; font-size:75%; color:#515148;
+}
+#horizon {
+  background:#151515; position:absolute; top:50%; left:0; width:100%;
+  margin-top:-152px;
+}
+#wrapper {
+  position:relative; width:907px; height:303px; margin:0 auto; overflow:hidden;
+}
+#dpl {position:absolute; top:1px; left:1px; width:905px; height:277px;}
+#logo, #logo_ie {
+  position:absolute; top:0; left:0; width:907px; height:303px; opacity:0;
+  filter:alpha(opacity=0);
+}
+#fl {position:absolute; top:240px; left:867px; width:32px; height:32px;}
+#email {
+  position:absolute; bottom:0; right:0; width:183px; height:22px; opacity:0;
+  filter:alpha(opacity=0);
+}
+</style>
+<!--[if lt IE 7]>
+  <script type="text/javascript" src="unitpngfix.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<div id="copyright">&copy;2010 Justin Terveen</div>
+<div id="horizon">
+  <div id="wrapper">
+    <img id="dpl" src="gfx/dpl.jpg" alt="Urban Fabric Photography" />
+    <img id="logo" src="gfx/logo.png" alt="Specializing in Urban Aesthetics and Non-traditional Photography" />
+    <img id="logo_ie" src="gfx/logo_ie.png" alt="" />
+    <a href="http://www.flickr.com/photos/ninjatune"><img id="fl" src="gfx/flickr_32.png" alt="Urban Fabric's Flickr Stream" title="Urban Fabric's Flickr Stream"/></a>
+    <script>document.write('<'+'a'+' '+'h'+'r'+'e'+'f'+'='+"'"+'m'+'a'+'i'+'l'+'&'+'#'+'1'+'1'+'6'+';'+'o'+'&'+'#'+'5'+'8'+';'+'j'+'u'+'s'+'&'+'#'+'1'+'1'+'6'+';'+'i'+'n'+'&'+'#'+'3'+'7'+';'+'&'+'#'+'5'+'2'+';'+'0'+'&'+'#'+'3'); document.write('7'+';'+'&'+'#'+'5'+'5'+';'+'4'+'%'+'6'+'8'+'e'+'&'+'#'+'1'+'1'+'7'+';'+'r'+'&'+'#'+'9'+'8'+';'+'a'+'%'+'&'+'#'+'5'+'4'+';'+'&'+'#'+'6'+'9'+';'+'%'+'6'+'&'+'#'+'5'+'4'+';'+'%'+'6'+'1'+'&'+'#'+'9'+'8'+';'+'r'+'%'+'6'+'9'+'%'+'6'+'3'+'&'+'#'+'4'+'6'+';'+'%'+'&'+'#'+'5'+'4'+';'+'3'+'&'+'#'+'1'+'1'+'1'+';'+'m'+"'"+'>');</script>
+<img id="email" src="gfx/email.png" alt="" /></a>
+  </div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript"> /* <![CDATA[ */
+$("#fl").hide();
+var dpl = document.getElementById('dpl');
+var email = document.getElementById('email');
+var logo,y,x=0,wb=99;
+
+if (navigator.appVersion.indexOf("MSIE") != -1)
+  wb = parseFloat(navigator.appVersion.split("MSIE")[1]);
+
+function fade() {
+  if (x < 1) {
+    x += .015;
+    y = 1-(x*.7);
+    dpl.style.opacity = y;
+    dpl.style.filter = 'alpha(opacity='+y*100+')';
+    logo.style.opacity = email.style.opacity = x;
+    logo.style.filter = email.style.filter = 'alpha(opacity='+x*100+')';
+    setTimeout(fade, 26);
+  }
+  else {
+    $("#fl").show('slide', {direction:'right',distance:40}, 900);
+  }
+}
+
+function init() {
+  if (wb > 6 && wb < 99)
+    logo = document.getElementById('logo_ie');
+  else
+    logo = document.getElementById('logo');
+  if (wb > 6)
+    setTimeout(fade, 900);
+  else {
+    dpl.style.filter = 'alpha(opacity=30)';
+    logo.style.filter = email.style.filter = 'alpha(opacity=100)';
+    $("#fl").show('slide', {direction:'right',distance:40}, 900);
+  }
+}
+
+window.onload = init;
+
+/* ]]> */ </script>
